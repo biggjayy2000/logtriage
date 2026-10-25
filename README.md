@@ -4,6 +4,8 @@ Offline triage for SSH auth logs and web access logs. It normalises both formats
 detection rules, and produces an incident summary an analyst could hand to a shift lead: severity
 counts, a timeline, and each alert with the log lines that triggered it.
 
+![logtriage triaging the sample incident](portfolio/screenshots/terminal-run.png)
+
 No network access, no dependencies, no log shipping — you point it at files.
 
 ```
