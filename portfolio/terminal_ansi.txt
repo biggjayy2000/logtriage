@@ -1,0 +1,35 @@
+logtriage - offline detection over SSH and web logs
+Defensive analysis only - reads files, opens no sockets.
+
+
+  Sources  data/sample_auth.log, data/sample_access.log
+  Events   74 parsed  |  2026-03-14 02:58:11 to 2026-03-14 04:22:19
+
+  [1;35mCritical 1[0m  [1;31mHigh 5[0m  [1;33mMedium 2[0m  [1;36mLow 0[0m  [1;37mInfo 0[0m
+
+  [1;35m[Critical][0m SSH-003  Successful login after repeated failures
+             'deploy' logged in from 203.0.113.77 after 3 failed attempts in the preceding 15 minutes
+             first seen 2026-03-14 03:16:00
+  [1;31m[  High  ][0m SSH-001  SSH brute-force attempts
+             7 failed SSH logins from 203.0.113.5 within 5 minutes, against 3 username(s)
+             first seen 2026-03-14 03:10:02
+  [1;31m[  High  ][0m SSH-002  Password spraying
+             6 distinct usernames tried from 198.51.100.9 within 15 minutes
+             first seen 2026-03-14 03:11:40
+  [1;31m[  High  ][0m WEB-003  Sensitive path probing (content returned)
+             8 request(s) for sensitive paths from 198.51.100.7; 1 returned content
+             first seen 2026-03-14 04:02:12
+  [1;31m[  High  ][0m WEB-004  Injection payloads in requests
+             3 request(s) from 203.0.113.9 contained injection-shaped input (<script, etc/passwd, union select)
+             first seen 2026-03-14 04:05:01
+  [1;31m[  High  ][0m WEB-002  Login endpoint brute force
+             9 failed logins to /login from 192.0.2.77 within 5 minutes
+             first seen 2026-03-14 04:09:00
+  [1;33m[ Medium ][0m SSH-004  Account used from multiple addresses
+             'jsmith' logged in from 2 different addresses within 10 minutes
+             first seen 2026-03-14 03:20:00
+  [1;33m[ Medium ][0m WEB-001  Directory and file scanning
+             26 client-error responses to 198.51.100.7 within 5 minutes
+             first seen 2026-03-14 04:02:10
+
+Markdown report written to portfolio/report-from-run.md
