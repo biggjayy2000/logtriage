@@ -42,7 +42,7 @@ step. Nothing is inferred that the log does not show.
 Requires Python 3.9+. No third-party packages.
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/biggjayy2000/logtriage.git
 cd logtriage
 
 # Triage the shipped sample logs
